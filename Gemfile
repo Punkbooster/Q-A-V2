@@ -18,6 +18,8 @@ gem 'react_on_rails', '11.0.0'
 gem 'haml-rails', '~> 1.0'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'devise'
+gem 'awesome_print', '~> 1.8'
 
 group :development, :test do
   gem 'sqlite3'

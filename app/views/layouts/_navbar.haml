@@ -19,6 +19,6 @@
         %a.nav-link.text-white{ href: 'pricing' } Pricing
       %btn.btn-active.btn-warning
         %li.nav-item
-          %a.nav-link.text-dark{ href: '#' } Sign Up
+          = link_to 'Sign Up', new_user_registration_path, class: 'nav-link text-dark'
       %li.nav-item
-        %a.nav-link{ href: '#' } Log In
+        = link_to 'Log In', new_user_session_path, class: 'nav-link'

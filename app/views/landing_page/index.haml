@@ -10,6 +10,6 @@
         %a.nav-link{ href: '#' } Q&A
     %ul.navbar-nav.ml-auto
       %li.nav-item
-        %a.nav-link{ href: '#' } Log In
+        = link_to 'Log In', new_user_session_path, class: 'nav-link'
       %li.nav-item
-        %a.nav-link{ href: '#' } Sign Up
+        = link_to 'Sign Up', new_user_registration_path, class: 'nav-link'

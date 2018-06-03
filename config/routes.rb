@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   root to: 'home#index'
+
+  # Static pages
   get 'index', to: 'home#index'
   get 'pricing', to: 'home#pricing'
   get 'features', to: 'home#features'
@@ -11,5 +15,4 @@ Rails.application.routes.draw do
   get 'jobs', to: 'home#jobs'
 
   get 'hello_world', to: 'hello_world#index'
-
 end
