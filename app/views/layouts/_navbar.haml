@@ -17,8 +17,26 @@
         %a.nav-link.text-white{ href: 'features' } Features
       %li.nav-item
         %a.nav-link.text-white{ href: 'pricing' } Pricing
-      %btn.btn-active.btn-warning
+      - unless current_user
+        %btn.btn-active.btn-warning
+          %li.nav-item
+            = link_to 'Sign Up', new_user_registration_path, class: 'nav-link text-dark'
         %li.nav-item
-          = link_to 'Sign Up', new_user_registration_path, class: 'nav-link text-dark'
-      %li.nav-item
-        = link_to 'Log In', new_user_session_path, class: 'nav-link'
+          = link_to 'Log In', new_user_session_path, class: 'nav-link'
+      - else
+
+        %li.nav-item.dropdown
+          %a#navbarDropdown.nav-link.dropdown-toggle.text-white{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            = current_user.username
+            \|
+            = current_user.company_name
+          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+            .dropdown-item
+              = link_to 'My events', root_path, class: 'nav-link text-dark'
+            .dropdown-item
+              = link_to 'Settings', edit_user_registration_path, class: 'nav-link text-dark'
+            .dropdown-item
+              = link_to 'Billing', root_path, class: 'nav-link text-dark'
+            %hr
+            .dropdown-item
+              = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link text-dark'

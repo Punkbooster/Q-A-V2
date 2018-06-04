@@ -14,7 +14,8 @@
           © #{Time.now.year} Copyright - Askdemos Ltd. All rights reserved -
           %a{:href => "http://www.askdemos.com/"} askdemos.com
         %p 13 Konstruktorska str. 02-651, Warsaw, Poland
-        %p hello@askdemos.com
+        %p= mail_to 'hello@askdemos.com'
+
       / Grid column
       %hr.clearfix.w-100.d-md-none/
       / Grid column

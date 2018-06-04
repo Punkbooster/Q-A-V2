@@ -5,4 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :email, :company_name, :country, :time_zone, presence: true
+
+  def username
+    if email.present?
+      self.email.split(/@/).first
+    end
+  end
+
 end
