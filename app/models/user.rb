@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :events
+
   validates :email, :company_name, :country, :time_zone, presence: true
 
   def username
@@ -11,5 +13,4 @@ class User < ApplicationRecord
       self.email.split(/@/).first
     end
   end
-
 end

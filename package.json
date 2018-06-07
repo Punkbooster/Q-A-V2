@@ -1,17 +1,46 @@
 {
-  "name": "QandA",
+  "name": "qanda",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
-    "react-on-rails": "11.0.7"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-react": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "caniuse-lite": "^1.0.30000847",
+    "js-yaml": "^3.12.0",
+    "npm": "^6.1.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-on-rails": "11.0.7",
+    "webpack": "3.3.0"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
   },
-  "scripts": {
-    "postinstall": "npm install"
-  },
+  "scripts": {},
   "engines": {
-    "node": "8.9.4"
-  }
+    "node": "8.11.2"
+  },
+  "description": "## Build with",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Q-A-V2/Q-A-V2.git"
+  },
+  "keywords": [
+    "q-and-a"
+  ],
+  "author": "Yaro, Arsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Q-A-V2/Q-A-V2/issues"
+  },
+  "homepage": "https://github.com/Q-A-V2/Q-A-V2#readme"
 }

@@ -1,33 +1,43 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .field
-    = f.label :company_name
-    %br/
-    = f.text_field :company_name
-  .field
-    = f.label :country
-    %br/
-    = f.text_field :country
-  .field
-    = f.label :time_zone
-    %br/
-    = f.text_field :time_zone
-  .actions
-    = f.submit 'Sign up'
-= render 'devise/shared/links'
+.row.signup-container
+  .col-md-2
+  .col-md-8
+    .card
+      %h2.card-header.bg-info
+        Sign up
+      .card-body
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f|
+          = devise_error_messages!
+          .form-group.row
+            = f.label :email, class: 'col-md-3 col-form-label'
+            .col-md-9
+              = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control',
+                placeholder: 'Email Address'
+          .form-group.row
+            = f.label 'Password', class: 'col-md-3 col-form-label'
+            .col-md-9
+              = f.password_field :password, autocomplete: 'off', class: 'form-control',
+                placeholder: 'Password'
+          .form-group.row.password-confirm
+            = f.label :password_confirmation, class: 'col-md-3 col-form-label'
+            .col-md-9
+              = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control',
+                placeholder: 'Password Confirmation'
+          .form-group.row
+            = f.label :company_name, class: 'col-md-3 col-form-label'
+            .col-md-9
+              = f.text_field :company_name, class: 'form-control',
+                placeholder: 'Company Name'
+          .form-group.row
+            = f.label :country, class: 'col-md-3 col-form-label'
+            .col-md-9
+              = f.text_field :country, class: 'form-control',
+                placeholder: 'Country'
+          .form-group.row
+            = f.label :time_zone, class: 'col-md-3 col-form-label'
+            .col-md-9
+              = f.time_zone_select(:time_zone, nil, {}, { class: 'custom-select' })
+          .form-group.row
+            .col-md-3
+            .col-md-9
+              = f.submit 'Sign up', class: 'btn btn-info'
+        = render 'devise/shared/links'

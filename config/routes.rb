@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'home#index'
+  root to: 'landing_page#index'
 
   # Static pages
-  get 'index', to: 'home#index'
   get 'pricing', to: 'home#pricing'
   get 'features', to: 'home#features'
   get 'contact_us', to: 'home#contact_us'
