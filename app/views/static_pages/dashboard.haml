@@ -1,0 +1,41 @@
+%br
+%h3 Welcome, #{current_user.username}
+
+%h3 Current plan: Free
+
+%br
+.row
+  .col-lg-6
+    .card.container
+      %p
+      Purchase
+      %p
+      Select a plan and add-ons
+      %p
+      Upgrade plan
+      %p
+      Buy 1 Q&A event
+      %p
+      Buy 1 poll
+      %p
+      Select a plan and add-ons
+      %p
+  .col
+    .card.container
+      %p
+      Create a free event
+      %p
+      [1/1] remaining
+      %p
+  .col
+    .card.container
+      %p
+      Create a free poll
+      %p
+      [1/1] remaining
+      %p
+%br
+%h3
+  My events:
+  = current_user.events.count
+%br

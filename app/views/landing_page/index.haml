@@ -1,15 +1,156 @@
-%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-  %a.navbar-brand{:href => "#"} Navbar
-  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
-    %span.navbar-toggler-icon
-  #navbarSupportedContent.collapse.navbar-collapse
-    %ul.navbar-nav.mr-auto
-      %li.nav-item
-        = link_to 'Home', root_path, class: 'nav-link'
-      %li.nav-item
-        %a.nav-link{ href: '#' } Q&A
-    %ul.navbar-nav.ml-auto
-      %li.nav-item
-        = link_to 'Log In', new_user_session_path, class: 'nav-link'
-      %li.nav-item
-        = link_to 'Sign Up', new_user_registration_path, class: 'nav-link'
+</div>
+.bg-light
+  .container.text-center
+    %br
+    .row
+      .col-lg.text-left
+        %h2.display-5
+          Askdemos helps your audience
+          to ask meaningful questions. 
+          /makes it simple for your audience to ask questions, vote on polls, and give their feedback.
+          /No installation or downloads required
+          /Because questions matter
+          /Questions that matter
+          /Drive meaningful conversation with us
+          /Askdemos helps to manage questions at events.
+          /With Askdemos, speakers can now effectively engage with your audience and answer meaningful questions.
+          %p
+          = link_to 'Try now! Create a free event', new_user_registration_path, class: 'btn btn-lg btn-warning'
+      .col
+        .embed-responsive.embed-responsive-16by9
+          %iframe.embed-responsive-item{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/H16ldnm_-ak?rel=0", :width => "560"}
+    %br
+    %h2.display-5 Engage with
+    %br
+    .row
+      .col
+        .card
+          .my-3.py-3
+            %h2.display-5 Q&A
+            %p.lead Let your audience submit and vote on questions.
+            = link_to 'See how Q&A works', features_path, class: 'btn btn-warning'
+            %p
+            %small.text-muted Ask questions. Vote on questions. Live projection.
+      .col
+        .card
+          .my-3.py-3
+            %h2.display-5 Polls
+            %p.lead Live voting and charts.
+            = link_to 'See how Polls work', features_path, class: 'btn btn-warning'
+            %p
+            %small.text-muted Engage everyone. Present like a rockstar!
+    /Live Polls keep your conference dynamic and interactive.
+    /FEATURES
+    /Interactive Agenda shows who’s speaking and what’s happening.
+    /Live Polls engage employees and lighten the mood.
+    /Engagement Insights help to gauge employee consensus.
+    /Engagement Insights provides data that helps you understand your customers.
+    /Live Polls excite and involve customers for a more immersive brand experience.
+    /%p Surveys: gather feedback collated in PDF and Excel formats.
+    %br
+    %h2.display-5 So simple!
+    %br
+    .card
+      .row.my-3.py-3
+        .col
+          %h5
+            %p.lead Gather instand feedback from your audience!
+            %p.lead No installations or downloads required.
+            /, vote on polls, and give their feedback
+        .col
+          [Picture of how audience can join]
+    %br
+    %h2.display-5 Boost any event
+    %br
+    .card-group
+      .card
+        .card-body
+          %h5.card-title Press Meetings
+          %p.card-text Time is limited. 100 journalists. All have questions. They can choose meaningful questions together.  
+          /%p.card-text
+          /  %small.text-muted Last updated 3 mins ago
+      .card
+        .card-body
+          %h5.card-title Conferences
+          %p.card-text Give every attendee the opportunity to be involved in Live Q&A, and drive discussions that are rewarding.
+      .card
+        .card-body
+          %h5.card-title Internal events
+          %p.card-text It can be hard for employees to speak up. Empower them with Live Q&A to ask questions anonymously.
+      .card
+        .card-body
+          %h5.card-title Workshops
+          %p.card-text Give participants a platform to contribute ideas and make learning fun and collaborative.
+      .card
+        .card-body
+          %h5.card-title Branding
+          %p.card-text Create an immersive experience
+      /%p At customer engagement events
+      /You can’t win over your customers unless you truly know them.
+      /With live interactivity, you’ll connect with your customers while getting insights for sharper follow-ups.
+      /%p At concerts
+      /You’ve lined up some outstanding speakers. Your curious audience can’t wait to learn from them.
+      /Conference Calls & Live streams
+      /Have productive calls. Gather questions quickly and address them on the same call.
+      /Tech Talks
+      /Encourage sharing and learning with an easy, fun way to post and vote on questions.
+      /Webinars
+      /Engage and learn more about participants even virtually with crowdsourced Q&A and polls.
+      /Education
+      /Make your lectures and classes fun and interactive. Keep students engaged and thinking.
+    %br
+    %hr
+    %br
+    %h2.display-5 Features
+    %br
+    .card-group
+      .card
+        .card-body
+          %h5.card-title Anonimity
+          %p.card-text
+            %small.text-muted Participants can comfortably raise questions anonymously.
+      .card
+        .card-body
+          %h5.card-title Security
+          %p.card-text
+            %small.text-muted You own your data. You can do anything with it.
+      .card
+        .card-body
+          %h5.card-title Analytics
+          %p.card-text
+            %small.text-muted Detaled engagement reports. Export to PDF and Excel.
+      .card
+        .card-body
+          %h5.card-title Team access
+          %p.card-text
+            %small.text-muted Assign users with different access rights.
+      .card
+        .card-body
+          %h5.card-title 24/7 Support
+          %p.card-text
+            %small.text-muted Our support is on duty.
+    %br
+    %hr
+    %br
+    .row
+      .col-4
+        %h2.display-5 Don't just take our word for it
+      .col-8
+        .row.text-center
+          .col
+            = image_tag "pg-askdemos-partner.png", style: 'height:auto;width:75%;', :alt => "pg-askdemos-partner"
+          .col
+            = image_tag "startup-weekend-askdemos-partner-logo.png", style: 'height:auto;width:75%;', :alt => "startup-weekend-askdemos-partner"
+          .col
+            = image_tag "visuality-askdemos-partner-logo.png", style: 'height:auto;width:75%;', :alt => "visuality-askdemos-partner"
+        %br
+        .row.text-center
+          .col
+            = image_tag "ewl-askdemos-partner.png", style: 'height:auto;width:75%;', :alt => "ewl-askdemos-partner"
+          .col
+            = image_tag "vistula-askdemos-partner-logo.png", style: 'height:auto;width:35%;', :alt => "vistula-askdemos-partner"
+          .col
+            = image_tag "spark-solutions-askdemos-partner-logo.png", style: 'height:auto;width:75%;', :alt => "spark-solutions-askdemos-partner"
+        /%p FLC London
+        /%p Ferrer hotels
+    %br

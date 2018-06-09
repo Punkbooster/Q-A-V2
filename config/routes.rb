@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'home#index'
+  root to: 'landing_page#index'
 
   # Static pages
-  get 'index', to: 'home#index'
-  get 'pricing', to: 'home#pricing'
-  get 'features', to: 'home#features'
-  get 'contact_us', to: 'home#contact_us'
-  get 'privacy_policy', to: 'home#privacy_policy'
-  get 'terms_of_service', to: 'home#terms_of_service'
-  get 'customer_agreement', to: 'home#customer_agreement'
-  get 'security', to: 'home#security'
-  get 'jobs', to: 'home#jobs'
+  get 'pricing', to: 'static_pages#pricing'
+  get 'features', to: 'static_pages#features'
+  get 'contact_us', to: 'static_pages#contact_us'
+  get 'privacy_policy', to: 'static_pages#privacy_policy'
+  get 'terms_of_service', to: 'static_pages#terms_of_service'
+  get 'customer_agreement', to: 'static_pages#customer_agreement'
+  get 'security', to: 'static_pages#security'
+  get 'jobs', to: 'static_pages#jobs'
+  get 'dashboard', to: 'static_pages#dashboard'
 
   get 'hello_world', to: 'hello_world#index'
 end

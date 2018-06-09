@@ -20,10 +20,11 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'devise'
 gem 'awesome_print', '~> 1.8'
+gem 'pg'
 
 group :development, :test do
-  gem 'pg'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
@@ -34,13 +35,10 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15', '< 4.0'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :production do
-  gem 'pg'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -11,10 +11,16 @@
         %h5.font-weight-bold.text-uppercase.mt-3.mb-4
           /Footer Content
         %p
-          © #{Time.now.year} Copyright - Askdemos Ltd. All rights reserved -
-          %a{:href => "http://www.askdemos.com/"} askdemos.com
-        %p 13 Konstruktorska str. 02-651, Warsaw, Poland
-        %p= mail_to 'hello@askdemos.com'
+          %small
+            %br
+            © #{Time.now.year} Copyright - Askdemos Ltd. 
+            %br
+            All rights reserved -
+            %a{:href => "http://www.askdemos.com/"} askdemos.com
+            %br
+            13 Konstruktorska str. 02-651, Warsaw, Poland
+            %br
+            = mail_to 'hello@askdemos.com'
 
       / Grid column
       %hr.clearfix.w-100.d-md-none/
@@ -60,9 +66,9 @@
   / Call to action
   %ul.list-unstyled.list-inline.text-center.py-2
     %li.list-inline-item
-      %h5.mb-1 Register for free
-    %li.list-inline-item
-      %a.btn.btn-danger.btn-rounded{:href => "#!"} Sign up!
+      %h5.mb-1 Ready to get started?
+    = link_to 'Try now for free!', new_user_registration_path, class: 'btn btn-lg btn-warning'
+
   / Call to action
   %hr/
   / Social buttons

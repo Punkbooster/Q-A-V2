@@ -11,20 +11,19 @@
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
       %li.nav-item
-        = link_to 'Home', root_path, class: 'nav-link'
+        = link_to 'Features', features_path, class: 'nav-link text-white'
+      %li.nav-item
+        = link_to 'Pricing', pricing_path, class: 'nav-link text-white'
     %ul.navbar-nav.ml-auto
-      %li.nav-item
-        %a.nav-link.text-white{ href: 'features' } Features
-      %li.nav-item
-        %a.nav-link.text-white{ href: 'pricing' } Pricing
       - unless current_user
         %btn.btn-active.btn-warning
           %li.nav-item
             = link_to 'Sign Up', new_user_registration_path, class: 'nav-link text-dark'
         %li.nav-item
-          = link_to 'Log In', new_user_session_path, class: 'nav-link'
+          = link_to 'Log In', new_user_session_path, class: 'nav-link text-white'
       - else
-
+        %li.nav-item
+          = link_to 'My Dashboard', dashboard_path, class: 'nav-link text-white'
         %li.nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle.text-white{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             = current_user.username
