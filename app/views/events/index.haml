@@ -1,0 +1,20 @@
+= render 'shared/flash_messages' if flash.any?
+
+%h1 Events
+%table.table
+  %thead
+    %tr
+      %th{:scope => 'col'} Title
+      %th{:scope => 'col'} Description
+      %th{:scope => 'col'} Created By
+      %th{:scope => 'col', :colspan => '3'} Actions
+  %tbody
+    - @events.each do |event|
+      %tr
+        %th{:scope => 'row'}= event.title
+        %th{:scope => 'row'}= event.description
+        %th{:scope => 'row'}= event.user.email
+        %th{:scope => 'row'}= link_to 'Show', event
+        %th{:scope => 'row'}= link_to 'Edit', edit_event_path(event)
+        %th{:scope => 'row'}= link_to 'Destroy', event, method: :delete,
+          data: { confirm: 'Are you sure?' }

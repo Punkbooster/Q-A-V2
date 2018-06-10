@@ -1,0 +1,14 @@
+= form_for @event, html: {class: "nifty_form"} do |f|
+  = f.label 'Title: '
+  = f.text_field :title
+  = f.label 'Description: '
+  = f.text_field :description
+  = f.label 'Starts at: '
+  = f.date_select :starts_at
+  = f.label 'Ends at: '
+  = f.date_select :ends_at
+  = f.label 'Time zone: '
+  = f.time_zone_select(:time_zone, nil, {}, { class: 'custom-select' })
+  = f.label 'Event code: '
+  = f.text_field :event_code
+  = f.submit 'Create'
