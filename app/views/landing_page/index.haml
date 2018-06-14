@@ -1,156 +1,199 @@
 </div>
-.bg-light
-  .container.text-center
-    %br
-    .row
-      .col-lg.text-left
-        %h2.display-5
-          Askdemos helps your audience
-          to ask meaningful questions. 
-          /makes it simple for your audience to ask questions, vote on polls, and give their feedback.
-          /No installation or downloads required
-          /Because questions matter
-          /Questions that matter
-          /Drive meaningful conversation with us
-          /Askdemos helps to manage questions at events.
-          /With Askdemos, speakers can now effectively engage with your audience and answer meaningful questions.
-          %p
-          = link_to 'Try now! Create a free event', new_user_registration_path, class: 'btn btn-lg btn-warning'
-      .col
-        .embed-responsive.embed-responsive-16by9
-          %iframe.embed-responsive-item{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/H16ldnm_-ak?rel=0", :width => "560"}
-    %br
-    %h2.display-5 Engage with
-    %br
-    .row
-      .col
-        .card
-          .my-3.py-3
-            %h2.display-5 Q&A
-            %p.lead Let your audience submit and vote on questions.
-            = link_to 'See how Q&A works', features_path, class: 'btn btn-warning'
-            %p
-            %small.text-muted Ask questions. Vote on questions. Live projection.
-      .col
-        .card
-          .my-3.py-3
-            %h2.display-5 Polls
-            %p.lead Live voting and charts.
-            = link_to 'See how Polls work', features_path, class: 'btn btn-warning'
-            %p
-            %small.text-muted Engage everyone. Present like a rockstar!
-    /Live Polls keep your conference dynamic and interactive.
-    /FEATURES
-    /Interactive Agenda shows who’s speaking and what’s happening.
-    /Live Polls engage employees and lighten the mood.
-    /Engagement Insights help to gauge employee consensus.
-    /Engagement Insights provides data that helps you understand your customers.
-    /Live Polls excite and involve customers for a more immersive brand experience.
-    /%p Surveys: gather feedback collated in PDF and Excel formats.
-    %br
-    %h2.display-5 So simple!
-    %br
-    .card
-      .row.my-3.py-3
-        .col
-          %h5
-            %p.lead Gather instand feedback from your audience!
-            %p.lead No installations or downloads required.
-            /, vote on polls, and give their feedback
-        .col
-          [Picture of how audience can join]
-    %br
-    %h2.display-5 Boost any event
-    %br
-    .card-group
-      .card
-        .card-body
-          %h5.card-title Press Meetings
-          %p.card-text Time is limited. 100 journalists. All have questions. They can choose meaningful questions together.  
-          /%p.card-text
-          /  %small.text-muted Last updated 3 mins ago
-      .card
-        .card-body
-          %h5.card-title Conferences
-          %p.card-text Give every attendee the opportunity to be involved in Live Q&A, and drive discussions that are rewarding.
-      .card
-        .card-body
-          %h5.card-title Internal events
-          %p.card-text It can be hard for employees to speak up. Empower them with Live Q&A to ask questions anonymously.
-      .card
-        .card-body
-          %h5.card-title Workshops
-          %p.card-text Give participants a platform to contribute ideas and make learning fun and collaborative.
-      .card
-        .card-body
-          %h5.card-title Branding
-          %p.card-text Create an immersive experience
-      /%p At customer engagement events
-      /You can’t win over your customers unless you truly know them.
-      /With live interactivity, you’ll connect with your customers while getting insights for sharper follow-ups.
-      /%p At concerts
-      /You’ve lined up some outstanding speakers. Your curious audience can’t wait to learn from them.
-      /Conference Calls & Live streams
-      /Have productive calls. Gather questions quickly and address them on the same call.
-      /Tech Talks
-      /Encourage sharing and learning with an easy, fun way to post and vote on questions.
-      /Webinars
-      /Engage and learn more about participants even virtually with crowdsourced Q&A and polls.
-      /Education
-      /Make your lectures and classes fun and interactive. Keep students engaged and thinking.
-    %br
-    %hr
-    %br
-    %h2.display-5 Features
-    %br
-    .card-group
-      .card
-        .card-body
-          %h5.card-title Anonimity
-          %p.card-text
-            %small.text-muted Participants can comfortably raise questions anonymously.
-      .card
-        .card-body
-          %h5.card-title Security
-          %p.card-text
-            %small.text-muted You own your data. You can do anything with it.
-      .card
-        .card-body
-          %h5.card-title Analytics
-          %p.card-text
-            %small.text-muted Detaled engagement reports. Export to PDF and Excel.
-      .card
-        .card-body
-          %h5.card-title Team access
-          %p.card-text
-            %small.text-muted Assign users with different access rights.
-      .card
-        .card-body
-          %h5.card-title 24/7 Support
-          %p.card-text
-            %small.text-muted Our support is on duty.
-    %br
-    %hr
-    %br
-    .row
-      .col-4
-        %h2.display-5 Don't just take our word for it
-      .col-8
-        .row.text-center
-          .col
-            = image_tag "pg-askdemos-partner.png", style: 'height:auto;width:75%;', :alt => "pg-askdemos-partner"
-          .col
-            = image_tag "startup-weekend-askdemos-partner-logo.png", style: 'height:auto;width:75%;', :alt => "startup-weekend-askdemos-partner"
-          .col
-            = image_tag "visuality-askdemos-partner-logo.png", style: 'height:auto;width:75%;', :alt => "visuality-askdemos-partner"
+.container.text-center
+  %br
+  .row
+    .col-lg.text-left
+      %h1.display-5
+        %b Askdemos brings
         %br
-        .row.text-center
-          .col
-            = image_tag "ewl-askdemos-partner.png", style: 'height:auto;width:75%;', :alt => "ewl-askdemos-partner"
-          .col
-            = image_tag "vistula-askdemos-partner-logo.png", style: 'height:auto;width:35%;', :alt => "vistula-askdemos-partner"
-          .col
-            = image_tag "spark-solutions-askdemos-partner-logo.png", style: 'height:auto;width:75%;', :alt => "spark-solutions-askdemos-partner"
-        /%p FLC London
-        /%p Ferrer hotels
-    %br
+        %b Democracy to the land
+        %br
+        %b of Q&A sessions!
+        /Askdemos helps your audience
+        /to ask meaningful questions. 
+        /makes it simple for your audience to ask questions, vote on polls, and give their feedback.
+        /No installation or downloads required
+        /Because questions matter
+        /Questions that matter
+        /Drive meaningful conversation with us
+        /Askdemos helps to manage questions at events.
+        /With Askdemos, speakers can now effectively engage with your audience and answer meaningful questions.
+        /Live voting and charts.
+        /FEATURES
+        /Make your lectures and classes fun and interactive. Keep students engaged and thinking.
+        /Interactive Agenda shows who’s speaking and what’s happening.
+        /Live Polls engage employees and lighten the mood.
+        /Engagement Insights help to gauge employee consensus.
+        /Engagement Insights provides data that helps you understand your customers.
+        /Live Polls excite and involve customers for a more immersive brand experience.
+        /%p Surveys: gather feedback collated in PDF and Excel formats.
+        /Ask questions. Vote on questions. Live projection.
+        /All questions matter
+        /There is no such thing as a stupid question
+        /You may not have time to answer all the questions in one go, but you will be able to have an overview on all of them. And if needed - release a follow-up with the answers!
+        /, vote on polls, and give their feedback
+        %p
+        = link_to 'Try now! Create a free Q&A event', new_user_registration_path, class: 'btn btn-lg btn-warning'
+    .col
+      .embed-responsive.embed-responsive-16by9
+        %iframe.embed-responsive-item{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/EXjX7ur9rZ4?rel=0", :width => "560"}
+  %br
+  %h2.display-5
+    /Live Q&A with question voting
+    Engage your audience
+  /.text-muted
+  /  Give everyone the power to ask a question.   
+  /  Crowdsource questions from the audience for speakers to answer.
+  %br
+  /0
+  /Sign up on the web and write the question you want to ask. You can start from scratch or use one of our best practice examples.
+  /4
+  /Decide what gets published
+  /You have full control over content shown. Allow only relevant questions, or fix grammatical errors in questions.
+  .card-deck
+    .card
+      .my-3.py-3
+        %i.fa.fa-question{:style => "font-size:200px;color:orange;"}
+        %h1
+          %span.badge.badge-warning 1
+        %h2.display-5
+          Ask questions
+        %p.lead
+          Participants compose questions at their own pace, anonymously or identified.
+        %p
+        %small.text-muted.container
+          There is no such thing as a stupid question. 
+          %br But there is such a thing as limited time. 
+          %p We let the audience to choose the questions that matter most.
+    .card
+      .my-3.py-3
+        %i.fa.fa-thumbs-up{:style => "font-size:200px;color:orange;"}
+        %h1
+          %span.badge.badge-warning 2
+        %h2.display-5
+          Vote for the best
+        %p.lead
+          Participants vote on questions that resonate. Speakers can now prioritise popular questions.
+        %p
+        %small.text-muted.container
+          Your audience goes to the voting website, enters the code for your presentation and votes. No installation or setup needed.
+    .card
+      .my-3.py-3
+        %i.fa.fa-tv{:style => "font-size:200px;color:orange;"}
+        %h1
+          %span.badge.badge-warning 3
+        %h2.display-5
+          Live rating
+          /Question wall
+        %p.lead
+          You can show participants an interactive real-time projection of questions as votes are cast and questions are answered.
+          /A presentation showing the results in real-time
+          /The result will be displayed in real-time as the votes come in. Of course you can also hide the results until everybody is finished.
+        = link_to 'See how Q&A works', features_path, class: 'btn btn-warning'
+  %br
+  %hr
+  %br
+  %h2.display-5 Boost any event!
+  %br
+  .card-group
+    .card
+      .card-body
+        %h5.card-title Press Meetings
+        /%p At concerts
+        %p.card-text Time is limited. 100 journalists. All have questions. They can choose meaningful questions together.  
+        /%p.card-text
+        /  %small.text-muted Last updated 3 mins ago
+    .card
+      .card-body
+        %h5.card-title Conferences
+        %p.card-text Give every attendee the opportunity to be involved in Live Q&A, and drive discussions that are rewarding.
+    .card
+      .card-body
+        %h5.card-title Internal events
+        %p.card-text It can be hard for employees to speak up. Empower them with Live Q&A to ask questions anonymously.
+    .card
+      .card-body
+        %h5.card-title Workshops
+        %p.card-text Give participants a platform to contribute ideas and make learning fun and collaborative.
+    .card
+      .card-body
+        %h5.card-title
+          Online events
+          /Conference Calls
+          /Webinars
+          /Live streams
+        %p.card-text 
+          Have productive calls. Gather questions quickly and address them on the same call.
+          /Engage and learn more about participants even virtually with crowdsourced Q&A and polls.
+    .card
+      .card-body
+        %h5.card-title Education
+        %p.card-text 
+          Encourage sharing and learning with an easy, fun way to post and vote on questions.
+  %br
+  = link_to 'More about internal & external events', event_types_path, class: 'btn btn-warning'
+  %br
+  %hr
+  %br
+  %h2.display-5 Features
+  %br
+  .card-group
+    .card
+      .card-body
+        %i.fa.fa-user-secret.fa-3x{:style => "font-size:50px;color:orange;"}
+        %h5.card-title Anonimity
+        %p.card-text
+          %small.text-muted Participants can comfortably raise questions anonymously.
+    .card
+      .card-body
+        %i.fa.fa-lock.fa-3x{:style => "font-size:50px;color:orange;"}
+        %h5.card-title Security
+        %p.card-text
+          %small.text-muted
+            Your data is private and encrypted. It is also logically separated from other events.
+    .card
+      .card-body
+        %i.fa.fa-signal.fa-3x{:style => "font-size:50px;color:orange;"}
+        %h5.card-title Analytics
+        %p.card-text
+          %small.text-muted Detaled audience engagement reports.
+    .card
+      .card-body
+        %i.fa.fa-download.fa-3x{:style => "font-size:50px;color:orange;"}
+        %h5.card-title Export
+        %p.card-text
+          %small.text-muted You own your data. Export to PDF and Excel.
+    .card
+      .card-body
+        %i.fa.fa-phone.fa-3x{:style => "font-size:50px;color:orange;"}
+        %h5.card-title 24/7 Support
+        %p.card-text
+          %small.text-muted Our support is on duty.
+  %br
+  = link_to 'And more', features_path, class: 'btn btn-warning'
+  %br
+  %hr
+  %br
+  .row
+    .col-4
+      %h2.display-5 Don't just take our word for it
+    .col-8
+      .row.text-center
+        .col
+          = image_tag "pg-askdemos-partner.png", style: 'height:auto;width:75%;', :alt => "pg-askdemos-partner"
+        .col
+          = image_tag "startup-weekend-askdemos-partner-logo.png", style: 'height:auto;width:75%;', :alt => "startup-weekend-askdemos-partner"
+        .col
+          = image_tag "visuality-askdemos-partner-logo.png", style: 'height:auto;width:75%;', :alt => "visuality-askdemos-partner"
+      %br
+      .row.text-center
+        .col
+          = image_tag "ewl-askdemos-partner.png", style: 'height:auto;width:75%;', :alt => "ewl-askdemos-partner"
+        .col
+          = image_tag "vistula-askdemos-partner-logo.png", style: 'height:auto;width:35%;', :alt => "vistula-askdemos-partner"
+        .col
+          = image_tag "spark-solutions-askdemos-partner-logo.png", style: 'height:auto;width:75%;', :alt => "spark-solutions-askdemos-partner"
+      /%p FLC London
+      /%p Ferrer hotels
+      /%p Anne Arundel Community College
+  %br

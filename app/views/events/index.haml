@@ -1,0 +1,87 @@
+%br
+  
+= render 'shared/flash_messages' if flash.any?
+%br
+%h3
+  My Q&A events:
+  = current_user.events.count
+%p
+.row
+  .col-lg-4
+    - unless current_user.events.any?
+      = link_to 'Create Free Q&A', new_event_path, class: 'btn btn-warning btn-block'
+    - else
+      = link_to 'Create Q&A', new_event_path, class: 'btn btn-warning btn-block'
+    %p
+    - @events.each do |event|
+      .card
+        %h5.card-header.bg-light
+          = link_to event.title, event, class: 'text-dark'
+        .card-body
+          %b
+            Pass:
+            = event.event_code.upcase
+          %p
+          .font-weight-light.font-italic
+            = simple_format(event.description)
+          %p
+          %small.text-muted
+            = event.starts_at.strftime('%e %B')
+            \-
+            = event.ends_at.strftime('%e %B %Y (%z)')
+        %small.container
+          .row.bg-light
+            .col-lg
+              = link_to event_path(event), class: 'badge badge-light' do
+                = fa_icon "thumbs-up"
+            .col-lg
+              .text-right
+                .font-weight-light.font-italic
+                  = time_ago_in_words(event.created_at)
+                  ago by
+                  - if event.user_id == current_user.id
+                    %span.badge.badge-success
+                      You
+                  - else
+                    = event.user.username
+      %p  
+  .col-lg-4
+    .card.container
+      %p
+      Select a plan and add-ons.
+      %p
+      = link_to 'Purchase', new_event_path, class: 'btn btn-warning btn-block disabled'
+      %p
+    %p
+    .card.container
+      %p
+      Explore paid features of Askdemos with up to 10 participants.
+      %p
+      = link_to 'Start free DEMO', new_event_path, class: 'btn btn-warning btn-block disabled'
+      %p
+    %p
+  .col-lg-4
+    Upgrade plan
+    [1/1] remaining
+%br
+.card
+  %h2.card-header.bg-warning
+    Events
+  .card-body
+    %table.table
+      %thead
+        %tr
+          %th{:scope => 'col'} Title
+          %th{:scope => 'col'} Description
+          %th{:scope => 'col'} Created By
+          %th{:scope => 'col', :colspan => '3'} Actions
+      %tbody
+        - @events.each do |event|
+          %tr
+            %th{:scope => 'row'}= event.title
+            %th{:scope => 'row'}= event.description
+            %th{:scope => 'row'}= event.user.email
+            %th{:scope => 'row'}= link_to 'Show', event
+            %th{:scope => 'row'}= link_to 'Edit', edit_event_path(event)
+            %th{:scope => 'row'}= link_to 'Destroy', event, method: :delete,
+              data: { confirm: 'Are you sure?' }

@@ -1,0 +1,4 @@
+- flash.each do |key, value|
+  %p
+  %div{:class => "#{flash_class(key.to_sym)}"}
+    = value

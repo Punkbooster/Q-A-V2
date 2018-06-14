@@ -1,0 +1,33 @@
+= form_for @event, html: {class: 'form-horizontal'} do |f|
+  = f.hidden_field(:user_id, value: current_user.id)
+  .form-group.row
+    = f.label 'Title:', class: 'col-md-3 col-form-label'
+    .col-md-9
+      = f.text_field :title, autofocus: true, class: 'form-control'
+  .form-group.row
+    = f.label 'Description:', class: 'col-md-3 col-form-label'
+    .col-md-9
+      = f.text_field :description, class: 'form-control'
+  .form-group.row
+    = f.label 'Starts at:', class: 'col-md-3 col-form-label'
+    .col-md-9
+      = f.date_select :starts_at
+  .form-group.row
+    = f.label 'Ends at:', class: 'col-md-3 col-form-label'
+    .col-md-9
+      = f.date_select :ends_at
+  .form-group.row
+    = f.label 'Time zone:', class: 'col-md-3 col-form-label'
+    .col-md-9
+      = f.time_zone_select(:time_zone, nil, {}, { class: 'custom-select' })
+  .form-group.row
+    = f.label 'Event code:', class: 'col-md-3 col-form-label'
+    .col-md-9
+      = f.text_field :event_code, class: 'form-control'
+  .form-group.row
+    .col-md-3
+    .col-md-9
+      = link_to 'Cancel', events_path, class: 'btn btn-secondary'
+      = f.submit 'Submit', class: 'btn btn-info'
+.links
+  = link_to 'Back', events_path, class: 'btn btn-secondary'

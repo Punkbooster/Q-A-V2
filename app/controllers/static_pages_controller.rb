@@ -1,8 +1,6 @@
 class StaticPagesController < ApplicationController
   def pricing; end
 
-  def dashboard; end
-
   def features; end
 
   def contact_us; end
@@ -16,4 +14,7 @@ class StaticPagesController < ApplicationController
   def security; end
 
   def jobs; end
+
+  def events; end
+
 end

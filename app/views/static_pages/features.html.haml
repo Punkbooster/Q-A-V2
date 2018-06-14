@@ -1,74 +1,72 @@
 </div>
-.text-center
+.container.text-center
   %h1 Features
-.jumbotron.bg-warning
-  .text-center
-    %h3
-      %p Questions at events. Answer meaningful questions!
   %br
-  %br
-  %br
+  %h2.display-5 Engage!
   %br
   .row
     .col
-      .text-center
-        %h1 Before
-      %h6
-        %p Speaker: "Thank you for listening. Have you got any questions?"
-        %p Audience: "Silence..."
+      .card
+        .my-3.py-3
+          %i.fa.fa-question-circle{:style => "font-size:80px;color:orange;"}
+          %h2.display-5 Question sessions
+          %p.lead Let your audience submit and vote on questions.
+          = link_to 'See how Q&A works', features_path, class: 'btn btn-warning'
+          %p
+          %small.text-muted 
+            There is no such thing as a stupid question. 
+            %br But there is such a thing as limited time. 
+            %p We let the audience to choose the questions that matter most.
     .col
-      .text-center
-        %h1 Askdemos
-.jumbotron.bg-warning
-  %h4
-    %p Live interactive polls. Engage your audience. Present like a rockstar!
-
-
+      .card
+        .my-3.py-3
+          %i.fa.fa-dashboard.fa-5x{:style => "font-size:80px;color:orange;"}
+          %h2.display-5 Live Polls
+          %p.lead Ask your audience questions. Let them vote on live charts!
+          = link_to 'See how Polls work', features_path, class: 'btn btn-warning'
+          %p
+          %small.text-muted 
+            Get instant measurable insights.
+            %br Keep your conference dynamic and interactive.
+            %p Engage everyone. Present like a rockstar!
+  %br
+  %h2.display-5 So simple!
+  %br
+  .card
+    .row.my-3.py-3
+      .col
+        %h5
+          %p.lead Gather instand feedback from your audience!
+          %p.lead No installations or downloads required.
+      .col
+        %i.fa.fa-mobile{:style => "font-size:200px;color:orange;"}
+  %br
+  %h2.display-5 PRO Features
+  %br
+  .card-group
+    .card
+      .card-body
+        %i.fa.fa-list.fa-3x{:style => "font-size:50px;color:orange;"}
+        %h5.card-title Review
+        %p.card-text
+          %small.text-muted Decide what gets published. Allow only relevant questions, or fix grammar errors.
+    .card
+      .card-body
+        %i.fa.fa-flag.fa-3x{:style => "font-size:50px;color:orange;"}
+        %h5.card-title Branding
+        %p.card-text
+          %small.text-muted Improve brand recall by adding your company logo and colours.
+          /Create an immersive experience
+    .card
+      .card-body
+        %i.fa.fa-flask.fa-3x{:style => "font-size:50px;color:orange;"}
+        %h5.card-title Test mode
+        %p.card-text
+          %small.text-muted Test before your event.
+    .card
+      .card-body
+        %i.fa.fa-sitemap.fa-3x{:style => "font-size:50px;color:orange;"}
+        %h5.card-title Team access
+        %p.card-text
+          %small.text-muted Assign users with different access rights.
 %br
-.container.marketing
-  .row
-    .col-lg-4
-      %img.rounded-circle{:alt => "Generic placeholder image", :height => "140", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :width => "140"}/
-      %h2 Heading
-      %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
-      %p
-        %a.btn.btn-secondary{:href => "https://getbootstrap.com/docs/4.0/examples/carousel/#", :role => "button"} View details »
-    .col-lg-4
-      %img.rounded-circle{:alt => "Generic placeholder image", :height => "140", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :width => "140"}/
-      %h2 Heading
-      %p Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
-      %p
-        %a.btn.btn-secondary{:href => "https://getbootstrap.com/docs/4.0/examples/carousel/#", :role => "button"} View details »
-    .col-lg-4
-      %img.rounded-circle{:alt => "Generic placeholder image", :height => "140", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :width => "140"}/
-      %h2 Heading
-      %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-      %p
-        %a.btn.btn-secondary{:href => "https://getbootstrap.com/docs/4.0/examples/carousel/#", :role => "button"} View details »
-  %hr.featurette-divider/
-  .row.featurette
-    .col-md-7
-      %h2.featurette-heading
-        First featurette heading.
-        %span.text-muted It'll blow your mind.
-      %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-    .col-md-5
-      %img.featurette-image.img-fluid.mx-auto{:alt => "500x500", "data-holder-rendered" => "true", "data-src" => "holder.js/500x500/auto", :src => "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163c6a9f213%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163c6a9f213%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.125%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E", :style => "width: 500px; height: 500px;"}/
-  %hr.featurette-divider/
-  .row.featurette
-    .col-md-7.order-md-2
-      %h2.featurette-heading
-        Oh yeah, it's that good.
-        %span.text-muted See for yourself.
-      %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-    .col-md-5.order-md-1
-      %img.featurette-image.img-fluid.mx-auto{:alt => "500x500", "data-holder-rendered" => "true", "data-src" => "holder.js/500x500/auto", :src => "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163c6a9f21c%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163c6a9f21c%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.125%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E", :style => "width: 500px; height: 500px;"}/
-  %hr.featurette-divider/
-  .row.featurette
-    .col-md-7
-      %h2.featurette-heading
-        And lastly, this one.
-        %span.text-muted Checkmate.
-      %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-    .col-md-5
-      %img.featurette-image.img-fluid.mx-auto{:alt => "500x500", "data-holder-rendered" => "true", "data-src" => "holder.js/500x500/auto", :src => "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163c6a9f21e%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163c6a9f21e%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.125%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E", :style => "width: 500px; height: 500px;"}/

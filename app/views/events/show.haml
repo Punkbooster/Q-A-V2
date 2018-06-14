@@ -1,0 +1,20 @@
+= render 'shared/flash_messages' if flash.any?
+
+.row.event-container
+  .col-md-2
+  .col-md-8
+    .card
+      %h2.card-header.bg-warning
+        Event
+      .card-body
+        %h1= "Title: #{@event.title}"
+        %p= "Description: #{@event.description}"
+        %p= "Starts at: #{@event.starts_at}"
+        %p= "Ends at: #{@event.ends_at}"
+        %p= "Time zone: #{@event.time_zone}"
+        %p= "Event code: #{@event.event_code}"
+        %p= "Created by: #{@event.user.email}"
+        .links
+          = link_to 'Edit', edit_event_path(@event), class: 'btn btn-primary'
+          = link_to 'Delete', event_path(@event), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-danger'
+          = link_to 'Back', events_path, class: 'btn btn-secondary'

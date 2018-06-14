@@ -1,0 +1,10 @@
+= render 'shared/flash_messages' if flash.any?
+
+.row.event-container
+  .col-md-2
+  .col-md-8
+    .card
+      %h2.card-header.bg-warning
+        Create Event
+      .card-body
+        = render 'form'
