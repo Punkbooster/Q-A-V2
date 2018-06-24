@@ -1,11 +1,27 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :start_now, :end_now]
+
+  def start_now
+		@event.update_attribute(:starts_at, Time.now)
+		redirect_to @event, notice: "Q&A started. Questions and votes can be added."
+	end
+
+  def end_now
+		@event.update_attribute(:ends_at, Time.now)
+		redirect_to @event, notice: "Q&A finished. No more questions and votes."
+	end
 
   def index
-    @events = Event.where(user: current_user)
+    #@events = Event.where(user: current_user)
+    @q = Event.where(user: current_user).ransack(params[:q])
+    @events = @q.result(distinct: true)
   end
 
-  def show; end
+  def show
+    @question = Question.new
+    @questions = @event.questions
+    #@questions = @event.questions.order(:cached_weighted_score => :desc)
+  end
 
   def new
     @event = Event.new
@@ -29,7 +45,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       @events = Event.where(user: current_user)
       flash[:success] = 'Successfully updated'
-      redirect_to events_path
+      redirect_to event_path(@event)
     else
       flash_errors
       render :edit
@@ -51,12 +67,12 @@ class EventsController < ApplicationController
   end
 
   def set_event
-    @event = Event.find(params[:id])
+    @event = Event.friendly.find(params[:id])
   end
 
   def event_params
     params[:event].permit(:title, :description, :starts_at, :ends_at, :user,
-                          :company_name, :country, :time_zone, :event_code,
+                          :company_name, :country, :time_zone, :password,
                           :user_id)
   end
 end

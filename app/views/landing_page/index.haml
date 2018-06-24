@@ -34,6 +34,8 @@
         /, vote on polls, and give their feedback
         %p
         = link_to 'Try now! Create a free Q&A event', new_user_registration_path, class: 'btn btn-lg btn-warning'
+      %small
+        Askdemos lets participants vote for questions on events
     .col
       .embed-responsive.embed-responsive-16by9
         %iframe.embed-responsive-item{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/EXjX7ur9rZ4?rel=0", :width => "560"}
@@ -170,7 +172,7 @@
         %p.card-text
           %small.text-muted Our support is on duty.
   %br
-  = link_to 'And more', features_path, class: 'btn btn-warning'
+  = link_to 'See more features', features_path, class: 'btn btn-warning'
   %br
   %hr
   %br

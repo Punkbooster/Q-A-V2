@@ -1,0 +1,7 @@
+.question-edit-container
+  %h2 Edit Question
+
+  = form_for @question do |f|
+    .form-group
+      = f.text_area :contents, autofocus: true, class: 'form-control'
+      = f.submit 'Submit', class: 'btn btn-info add-question-submit'

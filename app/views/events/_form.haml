@@ -4,30 +4,41 @@
     = f.label 'Title:', class: 'col-md-3 col-form-label'
     .col-md-9
       = f.text_field :title, autofocus: true, class: 'form-control'
-  .form-group.row
-    = f.label 'Description:', class: 'col-md-3 col-form-label'
-    .col-md-9
-      = f.text_field :description, class: 'form-control'
-  .form-group.row
-    = f.label 'Starts at:', class: 'col-md-3 col-form-label'
-    .col-md-9
-      = f.date_select :starts_at
-  .form-group.row
-    = f.label 'Ends at:', class: 'col-md-3 col-form-label'
-    .col-md-9
-      = f.date_select :ends_at
-  .form-group.row
-    = f.label 'Time zone:', class: 'col-md-3 col-form-label'
-    .col-md-9
-      = f.time_zone_select(:time_zone, nil, {}, { class: 'custom-select' })
-  .form-group.row
-    = f.label 'Event code:', class: 'col-md-3 col-form-label'
-    .col-md-9
-      = f.text_field :event_code, class: 'form-control'
+  /.form-group.row
+  /  = f.label 'Password:', class: 'col-md-3 col-form-label'
+  /  .col-md-9
+  /    = f.text_field :password, class: 'form-control'
+  /.form-group.row
+  /  = f.label 'Description:', class: 'col-md-3 col-form-label'
+  /  .col-md-9
+  /    = f.text_field :description, class: 'form-control'
+  - unless f.object.new_record?
+    .form-group.row
+      .col-md-3.col-form-label
+      .col-md-9.col-form-label
+        .text-left
+          Participants can ask questions and vote in this time period:
+    .form-group.row
+      = f.label 'Starts at:', class: 'col-md-3 col-form-label'
+      .col-md-9
+        /= f.datetime_select :starts_at, minute_step: 15, :default => Time.zone.now + 1.hour
+        = f.datetime_select :starts_at, :default => Time.zone.now + 1.hour
+    .form-group.row
+      = f.label 'Ends at:', class: 'col-md-3 col-form-label'
+      .col-md-9
+        = f.datetime_select :ends_at, :default => Time.zone.now + 2.hours
+        /= f.date_field :ends_at, value: @event.ends_at || (Time.now + 10.days).strftime('%Y-%m-%d'), class: "form-control"
+    .form-group.row
+      = f.label 'Time zone:', class: 'col-md-3 col-form-label'
+      .col-md-9
+        = f.time_zone_select(:time_zone, nil, {}, { class: 'custom-select' })
   .form-group.row
     .col-md-3
     .col-md-9
-      = link_to 'Cancel', events_path, class: 'btn btn-secondary'
+      /= link_to 'Cancel', events_path, class: 'btn btn-secondary'
       = f.submit 'Submit', class: 'btn btn-info'
-.links
-  = link_to 'Back', events_path, class: 'btn btn-secondary'
+  .links
+    - unless f.object.new_record?
+      = link_to 'Back', event_path(@event), class: 'btn btn-secondary'
+    - else
+      = link_to 'Back', events_path, class: 'btn btn-secondary'

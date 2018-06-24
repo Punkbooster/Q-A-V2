@@ -22,6 +22,7 @@ gem 'devise'
 gem 'awesome_print', '~> 1.8'
 gem 'pg'
 gem 'rollbar'
+gem 'acts_as_votable', '~> 0.11.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -51,3 +52,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mini_racer', platforms: :ruby
 gem "font-awesome-rails"
+gem 'ransack'
+gem 'friendly_id', '~> 5.1.0'

@@ -1,87 +1,111 @@
 %br
-  
 = render 'shared/flash_messages' if flash.any?
-%br
-%h3
-  My Q&A events:
-  = current_user.events.count
-%p
+%p 
 .row
-  .col-lg-4
-    - unless current_user.events.any?
-      = link_to 'Create Free Q&A', new_event_path, class: 'btn btn-warning btn-block'
-    - else
-      = link_to 'Create Q&A', new_event_path, class: 'btn btn-warning btn-block'
+  .col-lg-3
+    .card.border-warning
+      .card-body
+        .text-center
+          %h2
+            = pluralize(current_user.events.count, 'Event')
+          [1/1] remaining
+          %p
+          = link_to 'Create New', new_event_path, class: 'btn btn-warning btn-block'
+  .col-lg-3
+    .card.border-warning
+      .card-body
+        .text-center
+          %h2 Upgrade
+        Select a plan and add-ons.
+        %p
+        = link_to 'Purchase', new_event_path, class: 'btn btn-outline-warning btn-block disabled'
     %p
+  .col-lg-3
+    .card.border-warning
+      .card-body
+        .text-center
+          %h2 Try PRO
+        Explore paid features with up to 10 participants.
+        %p
+        = link_to 'Start free DEMO', new_event_path, class: 'btn btn-outline-warning btn-block disabled'
+  .col-lg-3
+    .card.border-warning
+      .card-body
+        .text-center
+          %h2 How it works
+      /.embed-responsive.embed-responsive-16by9
+      /  %iframe.embed-responsive-item{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/EXjX7ur9rZ4?rel=0", :width => "560"}
+
+%p
+.text-white
+  %form.form-inline.my-2.my-lg-0
+    = search_form_for @q, url: events_path do |f|
+      .mr-sm-2
+        = f.text_field :title_cont, class: 'form-control', placeholder: 'Find Event', autofocus: true
+      %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"}
+        %span.fa.fa-search{"aria-hidden" => "true"}
+      .my-2.my-sm-0
+        = link_to "<i class='fa fa-refresh'></i>".html_safe, events_path, class: 'btn btn-outline-secondary'
+%p
+%table.table.table-responsive.table-hover.bg-white
+  %thead.bg-warning
+    %tr
+      %th
+      %th Name
+      /%th Description
+      %th Password
+      %th= sort_link(@q, :starts_at, "Starts")
+      %th= sort_link(@q, :ends_at, "Ends")
+      %th Duration
+      %th Status
+      %th= sort_link(@q, :created_at, "Created")
+      %th= sort_link(@q, :updated_at, "Updated")
+      %th{:scope => 'col', :colspan => '2'} Actions
+  %tbody
     - @events.each do |event|
-      .card
-        %h5.card-header.bg-light
-          = link_to event.title, event, class: 'text-dark'
-        .card-body
-          %b
-            Pass:
-            = event.event_code.upcase
-          %p
-          .font-weight-light.font-italic
-            = simple_format(event.description)
-          %p
-          %small.text-muted
-            = event.starts_at.strftime('%e %B')
-            \-
-            = event.ends_at.strftime('%e %B %Y (%z)')
-        %small.container
-          .row.bg-light
-            .col-lg
-              = link_to event_path(event), class: 'badge badge-light' do
-                = fa_icon "thumbs-up"
-            .col-lg
-              .text-right
-                .font-weight-light.font-italic
-                  = time_ago_in_words(event.created_at)
-                  ago by
-                  - if event.user_id == current_user.id
-                    %span.badge.badge-success
-                      You
-                  - else
-                    = event.user.username
-      %p  
-  .col-lg-4
-    .card.container
-      %p
-      Select a plan and add-ons.
-      %p
-      = link_to 'Purchase', new_event_path, class: 'btn btn-warning btn-block disabled'
-      %p
-    %p
-    .card.container
-      %p
-      Explore paid features of Askdemos with up to 10 participants.
-      %p
-      = link_to 'Start free DEMO', new_event_path, class: 'btn btn-warning btn-block disabled'
-      %p
-    %p
-  .col-lg-4
-    Upgrade plan
-    [1/1] remaining
+      %tr
+        %td
+          .badge.badge-info
+            .fa.fa-users
+            participants
+          %br
+          .badge.badge-info
+            .fa.fa-question
+            /= fa_icon "impressions"
+            = pluralize(event.questions.count, 'question')
+          %br
+          .badge.badge-info
+            .fa.fa-thumbs-up
+            = pluralize(event.vote_quantity, 'vote')
+        %td= link_to event.title, event, class: 'btn btn-default'
+        /%td
+        /  .font-weight-light.font-italic
+        /    = simple_format(event.description)
+        %td
+          %b= event.password.upcase
+        %td= event.starts_at.strftime('%e-%b %Y, %H:%M (%z)')
+        %td= event.ends_at.strftime('%e-%b %Y, %H:%M')
+        %td= distance_of_time_in_words event.ends_at, event.starts_at
+        %td
+          = status_label(event.status)
+          - if event.starts_at > Time.now
+            starts in
+            = distance_of_time_in_words Time.now, event.starts_at
+            = button_to "Start now", start_now_event_path(event), method: :patch
+          - if event.status == 'active'
+            = button_to "End now", end_now_event_path(event), method: :patch
+        %td= "#{time_ago_in_words(event.created_at)} ago by #{event.user.username}"
+        %td= "#{time_ago_in_words(event.updated_at)} ago"
+        %td
+          /= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+          /= link_to '', edit_event_path(event), class: "btn btn-success fa fa-pencil btn-xs", title: 'Show Client', 'data-toggle' => 'tooltip', 'data-placement' => 'top'
+          = link_to edit_event_path(event) do
+            .btn.btn-outline-secondary
+              .fa.fa-pencil
+              Edit
+        %td
+          = link_to event, method: :delete, data: { confirm: 'Are you sure?' } do 
+            .btn.btn-outline-secondary
+              .fa.fa-trash
+              Destroy
 %br
-.card
-  %h2.card-header.bg-warning
-    Events
-  .card-body
-    %table.table
-      %thead
-        %tr
-          %th{:scope => 'col'} Title
-          %th{:scope => 'col'} Description
-          %th{:scope => 'col'} Created By
-          %th{:scope => 'col', :colspan => '3'} Actions
-      %tbody
-        - @events.each do |event|
-          %tr
-            %th{:scope => 'row'}= event.title
-            %th{:scope => 'row'}= event.description
-            %th{:scope => 'row'}= event.user.email
-            %th{:scope => 'row'}= link_to 'Show', event
-            %th{:scope => 'row'}= link_to 'Edit', edit_event_path(event)
-            %th{:scope => 'row'}= link_to 'Destroy', event, method: :delete,
-              data: { confirm: 'Are you sure?' }

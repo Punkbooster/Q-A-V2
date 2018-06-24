@@ -54,7 +54,7 @@ describe 'Event CRUD', type: :feature do
         expect(page).to have_content(event.starts_at)
         expect(page).to have_content(event.ends_at)
         expect(page).to have_content(event.time_zone)
-        expect(page).to have_content(event.event_code)
+        expect(page).to have_content(event.password)
         expect(page).to have_content(event.user.email)
       end
     end
@@ -64,7 +64,7 @@ describe 'Event CRUD', type: :feature do
         visit new_event_path
         fill_in 'event[title]', with: 'Demo Event'
         fill_in 'event[description]', with: 'Demo description'
-        fill_in 'event[event_code]', with: 'Code'
+        fill_in 'event[password]', with: 'Code'
         select '(GMT-09:00) Alaska', from: 'event[time_zone]'
         click_button 'Submit'
       end
@@ -82,7 +82,7 @@ describe 'Event CRUD', type: :feature do
         visit edit_event_path(event)
         fill_in 'event[title]', with: 'Brand new title'
         fill_in 'event[description]', with: 'New description'
-        fill_in 'event[event_code]', with: 'Brand new code'
+        fill_in 'event[password]', with: 'Brand new code'
         select '2022', from: 'event_ends_at_1i'
         select '(GMT+01:00) Berlin', from: 'event[time_zone]'
         click_button 'Submit'

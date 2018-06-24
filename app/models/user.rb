@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :events
+  has_many :questions
 
   validates :email, :company_name, :country, :time_zone, presence: true
 
