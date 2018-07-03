@@ -14,4 +14,6 @@ class User < ApplicationRecord
       self.email.split(/@/).first
     end
   end
+
+  acts_as_voter
 end

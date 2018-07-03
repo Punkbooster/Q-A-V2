@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'jobs', to: 'static_pages#jobs'
   get 'event_types', to: 'static_pages#event_types'
 
+  #resources :events, only: :show
   resources :questions, only: [:create, :edit, :update, :destroy] do
     member do
       put 'upvote', to: 'questions#upvote'

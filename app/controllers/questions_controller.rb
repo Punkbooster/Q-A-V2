@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
     @event = Event.find_by(id: question_params[:event_id])
 
     if @question.save
-      flash[:success] = 'Successfully created'
+      flash[:success] = 'Thank you! Your question has been posted'
     else
       errors = @question.errors.full_messages.join(', ')
       flash[:error] = errors

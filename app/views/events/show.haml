@@ -1,90 +1,19 @@
 - content_for :title do
   = @event.title
 = render 'shared/flash_messages' if flash.any?
+- if current_user && @event.user_id == current_user.id
+  = render 'event_admin'
 .row
-  - if current_user && @event.user_id == current_user.id
-    .col-lg-3
-      .event-container
-        .card.border-info
-          .card-header.bg-info.text-center
-            Admin actions:
-            %b= @event.title
-          .card-body
-            %small
-              %b Participants can ask questions and vote in this time period.
-              .links
-                = link_to 'Edit time', edit_event_path(@event), class: 'btn btn-primary btn-sm'
-                /= link_to 'Delete Event', event_path(@event), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-danger btn-sm'
-              %p
-              %p= "Start: #{@event.starts_at.strftime('%d-%b %Y, %H:%M')}"
-              %p
-                = "End: #{@event.ends_at.strftime('%d-%b %Y, %H:%M')}"
-                (#{distance_of_time_in_words @event.ends_at, @event.starts_at})
-              %p= "Time zone: #{@event.time_zone}"
-              .text-center
-                %h6
-                  Status:
-                - if @event.starts_at > Time.now
-                  starts in
-                  = distance_of_time_in_words Time.now, @event.starts_at
-                  = button_to "Start now", start_now_event_path(@event), method: :patch
-                - if @event.status == 'active'
-                  = button_to "End now", end_now_event_path(@event), method: :patch
-                %h3
-                  = status_label(@event.status)
-              /%p= "Created by: #{@event.user.email}"
-          .card-header.bg-info.text-center
-            Engage attendees
-          .card-body
-            %small
-              %p Your Event is Live!
-              %p Follow these steps to engage your attendees now
-              %p Show the Projector Panel onstage for attendees to see.
-              %p New questions automatically appear on the Projector Panel.
-          .card-header.bg-info.text-center
-            Upgrade
-          .card-body
-            %small
-              %p Logo Branding
-              %p Give your brand more visibility by adding your company or event logo on the Projector Panel.
-              %p Custom Branding
-              %p Contact us for customisation beyond Logo Branding. We will work with you to ensure that the look and feel of AskDemos meets your company or event's branding.
-          .card-header.bg-info.text-center
-            Insights
-          .card-body.text-center
-            .badge.badge-info
-              .fa.fa-users
-              participants
-            %br
-            .badge.badge-info
-              .fa.fa-question
-              /= fa_icon "impressions"
-              = pluralize(@event.questions.count, 'question')
-            %br
-            .badge.badge-info
-              .fa.fa-thumbs-up
-              = pluralize(@event.vote_quantity, 'vote')
-            %br
-            Download
-
-  .col-lg
+  .col-lg-2
+  .col-lg-8
     .event-container
       .card.border-warning
         %h2.card-header.bg-warning.text-center
           = "#{@event.title}"
-        .bg-warning.text-center
-          %small
-            %b
-              /= "Password: #{@event.password.upcase}"
-              /%p
-              - if @event.starts_at > Time.now
-                starts in
-                = distance_of_time_in_words Time.now, @event.starts_at
-              - if @event.status == 'active'
-                ends in
-                = distance_of_time_in_words Time.now, @event.ends_at
-          - if @event.description?
-            %p= "Description: #{@event.description}"
+        - if @event.description?
+          .bg-warning.text-center
+            %small
+              %p= "#{@event.description}"
         .card-header.bg-warning
           = form_for @question do |f|
             = f.hidden_field(:event_id, value: @event.id)
@@ -92,27 +21,26 @@
             .form-group
               /= f.text_area :contents, autofocus: true, class: 'form-control', placeholder: "Enter your question here"
               = f.text_area :contents, autofocus: true, class: 'form-control', placeholder: "Do you have a new question?"
-              = f.submit 'Submit', class: 'btn btn-info add-question-submit'
-        .card-body
-          - if @event.questions.any?
-            .text-center
-              %h3
-                = pluralize(@event.questions.count, 'Question')
-            - @questions.each do |question|
-              .card.bg-warning.container
-                .card-body
-                  .row
-                    .col-lg-auto
-                      = link_to upvote_question_path(question), method: :put do
-                        .col-md-12
-                          /.btn.btn-outline-success
-                          /%i.fa.fa-thumbs-up{:style => "font-size:30px;color:white;"}
-                          %i.fa.fa-thumbs-up{:style => "font-size:25px;"}
-                      %span= pluralize(question.weighted_score, 'vote')
-                    .col-lg
-                      /.pull-left
-                      %h6= question.contents
-              %p
+              = f.submit 'Ask', class: 'btn btn-info add-question-submit'
+      - if @event.questions.any?
+        %p
+        - @questions.each do |question|
+          .card
+            .card-body
+              .row
+                .col-lg-auto
+                  - unless current_user.voted_for? question
+                    = link_to upvote_question_path(question), method: :put do
+                      .col-md-12
+                        /.btn.btn-outline-success
+                        /  %i.fa.fa-thumbs-up{:style => "font-size:30px;color:orange;"}
+                        %i.fa.fa-thumbs-up{:style => "font-size:25px;color:grey"}
+                  - else
+                    .col-md-12
+                      %i.fa.fa-thumbs-up{:style => "font-size:25px;color:orange"}
+                  %span= pluralize(question.weighted_score, 'vote')
+                .col-lg
+                  = question.contents
 /.card-body.questions-container
 /  - if @event.questions.any?
 /    %h1 Questions:

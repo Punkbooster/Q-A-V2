@@ -65,19 +65,19 @@
     - @events.each do |event|
       %tr
         %td
-          .badge.badge-info
+          .badge.badge-warning
             .fa.fa-users
             participants
           %br
-          .badge.badge-info
+          .badge.badge-warning
             .fa.fa-question
             /= fa_icon "impressions"
             = pluralize(event.questions.count, 'question')
           %br
-          .badge.badge-info
+          .badge.badge-warning
             .fa.fa-thumbs-up
             = pluralize(event.vote_quantity, 'vote')
-        %td= link_to event.title, event, class: 'btn btn-default'
+        %td= link_to event.title, event, class: 'btn btn-outline-info'
         /%td
         /  .font-weight-light.font-italic
         /    = simple_format(event.description)

@@ -1,17 +1,13 @@
 = form_for @event, html: {class: 'form-horizontal'} do |f|
   = f.hidden_field(:user_id, value: current_user.id)
   .form-group.row
-    = f.label 'Title:', class: 'col-md-3 col-form-label'
+    = f.label 'Title: *', class: 'col-md-3 col-form-label'
     .col-md-9
-      = f.text_field :title, autofocus: true, class: 'form-control'
-  /.form-group.row
-  /  = f.label 'Password:', class: 'col-md-3 col-form-label'
-  /  .col-md-9
-  /    = f.text_field :password, class: 'form-control'
-  /.form-group.row
-  /  = f.label 'Description:', class: 'col-md-3 col-form-label'
-  /  .col-md-9
-  /    = f.text_field :description, class: 'form-control'
+      = f.text_field :title, autofocus: true, class: 'form-control', placeholder: 'Event name'
+  .form-group.row
+    = f.label 'Description:', class: 'col-md-3 col-form-label'
+    .col-md-9
+      = f.text_field :description, class: 'form-control', placeholder: 'Any additional info you want the participants to know'
   - unless f.object.new_record?
     .form-group.row
       .col-md-3.col-form-label
@@ -36,7 +32,7 @@
     .col-md-3
     .col-md-9
       /= link_to 'Cancel', events_path, class: 'btn btn-secondary'
-      = f.submit 'Submit', class: 'btn btn-info'
+      = f.submit 'Create Event', class: 'btn btn-warning'
   .links
     - unless f.object.new_record?
       = link_to 'Back', event_path(@event), class: 'btn btn-secondary'

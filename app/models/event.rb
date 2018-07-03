@@ -1,14 +1,15 @@
 class Event < ApplicationRecord
+  include ActionView::Helpers::DateHelper
+
   belongs_to :user
   has_many :questions
 
   extend FriendlyId
   friendly_id :password, use: :slugged
-  #friendly_id :password, use: [:slugged, :finders]
 
   validates :title, :user, presence: true
   #validates :title, :starts_at, :ends_at, :user, presence: true
-  #validates :title, :password, :starts_at, :ends_at, :user, presence: true
+  #validates :title, :password, :starts_at, :ends_at, :user, presence: true, on: update
   #validates :title, :password, :starts_at, :ends_at, :user, time_zone, presence: true
   validates :title, length: { maximum: 25 }
   validates :description, length: { maximum: 250 }
@@ -29,6 +30,18 @@ class Event < ApplicationRecord
       "active"
     elsif starts_at < Time.now && ends_at < Time.now
       "finished"
+    else
+      'ERROR'
+    end
+  end
+
+  def status_2
+    if status == 'not started'
+      "starts in #{distance_of_time_in_words(Time.now, starts_at)}"
+    elsif status == 'active'
+      "ends in #{distance_of_time_in_words(Time.now, ends_at)}"
+    elsif status == 'finished'
+      'finished'
     else
       'ERROR'
     end
