@@ -10,28 +10,28 @@
           .form-group.row
             = f.label :email, class: 'col-md-3 col-form-label'
             .col-md-9
-              = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control',
-                placeholder: 'Company Email Address'
+              = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+              /  placeholder: 'Email Address'
           .form-group.row
             = f.label 'Password', class: 'col-md-3 col-form-label'
             .col-md-9
-              = f.password_field :password, autocomplete: 'off', class: 'form-control',
-                placeholder: 'Password'
+              = f.password_field :password, autocomplete: 'off', class: 'form-control'
+              /  placeholder: 'Password'
           .form-group.row.password-confirm
             = f.label :password_confirmation, class: 'col-md-3 col-form-label'
             .col-md-9
-              = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control',
-                placeholder: 'Password Confirmation'
-          .form-group.row
-            = f.label :company_name, class: 'col-md-3 col-form-label'
-            .col-md-9
-              = f.text_field :company_name, class: 'form-control',
-                placeholder: 'Company Name'
-          .form-group.row
-            = f.label :country, class: 'col-md-3 col-form-label'
-            .col-md-9
-              = f.text_field :country, class: 'form-control',
-                placeholder: 'Country'
+              = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+              /  placeholder: 'Password Confirmation'
+          /.form-group.row
+          /  = f.label :company_name, class: 'col-md-3 col-form-label'
+          /  .col-md-9
+          /    = f.text_field :company_name, class: 'form-control'
+          /    /  placeholder: 'Company Name'
+          /.form-group.row
+          /  = f.label :country, class: 'col-md-3 col-form-label'
+          /  .col-md-9
+          /    = f.text_field :country, class: 'form-control'
+          /    /  placeholder: 'Country'
           .form-group.row
             = f.label :time_zone, class: 'col-md-3 col-form-label'
             .col-md-9

@@ -3,12 +3,14 @@
   %br
   .row
     .col-lg.text-left
-      %h1.display-5
-        %b Askdemos brings
-        %br
-        %b Democracy to the land
-        %br
-        %b of Q&A sessions!
+      .display-4
+        Askdemos is a tool that lets participants ask & vote for questions on events
+      %h1
+        /%b Askdemos brings
+        /%br
+        /%b Democracy to the land
+        /%br
+        /%b of Q&A sessions!
         /Askdemos helps your audience
         /to ask meaningful questions. 
         /makes it simple for your audience to ask questions, vote on polls, and give their feedback.
@@ -32,17 +34,27 @@
         /There is no such thing as a stupid question
         /You may not have time to answer all the questions in one go, but you will be able to have an overview on all of them. And if needed - release a follow-up with the answers!
         /, vote on polls, and give their feedback
+        /%small
+        /  Askdemos lets participants ask & vote for questions on events
+        %br
+        /= link_to 'Try now! Create a free Q&A event', new_user_registration_path, class: 'btn btn-lg btn-warning'
+        = link_to 'Get started for free', new_user_registration_path, class: 'btn btn-lg btn-warning'
         %p
-        = link_to 'Try now! Create a free Q&A event', new_user_registration_path, class: 'btn btn-lg btn-warning'
-      %small
-        Askdemos lets participants vote for questions on events
     .col
       .embed-responsive.embed-responsive-16by9
         %iframe.embed-responsive-item{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/EXjX7ur9rZ4?rel=0", :width => "560"}
+  %hr
   %br
-  %h2.display-5
+  /%h6.display-6
+  /  /Live Q&A with question voting
+  /  %p DemoCracy = People + Power
+  /  %p AskDemos = Ask + People!
+  /%br
+  /%hr
+  /%br
+  .display-4
     /Live Q&A with question voting
-    Engage your audience
+    Realtime voting to engage your audience
   /.text-muted
   /  Give everyone the power to ask a question.   
   /  Crowdsource questions from the audience for speakers to answer.
@@ -59,7 +71,7 @@
         %h1
           %span.badge.badge-warning 1
         %h2.display-5
-          Ask questions
+          Ask a question
         %p.lead
           Participants compose questions at their own pace, anonymously or identified.
         %p
@@ -91,18 +103,63 @@
           You can show participants an interactive real-time projection of questions as votes are cast and questions are answered.
           /A presentation showing the results in real-time
           /The result will be displayed in real-time as the votes come in. Of course you can also hide the results until everybody is finished.
-        = link_to 'See how Q&A works', features_path, class: 'btn btn-warning'
+        = link_to 'See how Q&A works', how_path, class: 'btn btn-warning'
   %br
   %hr
   %br
-  %h2.display-5 Boost any event!
+  .display-4 Why?
+  %br
+  .card
+    .card-body
+      .row
+        .col-lg-auto
+          .col-md-12
+            %i.fa.fa-thumbs-up{:style => "font-size:40px;color:orange"}
+        .col-lg
+          .text-left
+            %h4 Engage
+            Create a conversation with your audience. Receive feedback on your event.
+  .card
+    .card-body
+      .row
+        .col-lg-auto
+          .col-md-12
+            %i.fa.fa-thumbs-up{:style => "font-size:40px;color:orange"}
+        .col-lg
+          .text-left
+            %h4 Prioritize
+            Because time is limited, speakers can now focus on popular questions.
+  .card
+    .card-body
+      .row
+        .col-lg-auto
+          .col-md-12
+            %i.fa.fa-thumbs-up{:style => "font-size:40px;color:orange"}
+        .col-lg
+          .text-left
+            %h4 Bottom of the iceberg
+            Learn questons that would not be asked otherwise.
+  .card
+    .card-body
+      .row
+        .col-lg-auto
+          .col-md-12
+            %i.fa.fa-thumbs-up{:style => "font-size:40px;color:orange"}
+        .col-lg
+          .text-left
+            %h4 Follow-up
+            Get contact details of interested audience members. Answer unanswered questions later on. 
+  %br
+  %hr
+  %br
+  .display-4 Great for different events
   %br
   .card-group
     .card
       .card-body
         %h5.card-title Press Meetings
         /%p At concerts
-        %p.card-text Time is limited. 100 journalists. All have questions. They can choose meaningful questions together.  
+        %p.card-text Time is limited. Dozens of journalists. All have questions. They can choose meaningful questions together.  
         /%p.card-text
         /  %small.text-muted Last updated 3 mins ago
     .card
@@ -133,13 +190,17 @@
         %p.card-text 
           Encourage sharing and learning with an easy, fun way to post and vote on questions.
   %br
-  = link_to 'More about internal & external events', event_types_path, class: 'btn btn-warning'
-  %br
   %hr
   %br
-  %h2.display-5 Features
+  .display-4 Core Features
   %br
   .card-group
+    .card
+      .card-body
+        %i.fa.fa-cloud-upload.fa-3x{:style => "font-size:50px;color:orange;"}
+        %h5.card-title In the cloud
+        %p.card-text
+          %small.text-muted No installation or download required
     .card
       .card-body
         %i.fa.fa-user-secret.fa-3x{:style => "font-size:50px;color:orange;"}
@@ -165,12 +226,6 @@
         %h5.card-title Export
         %p.card-text
           %small.text-muted You own your data. Export to PDF and Excel.
-    .card
-      .card-body
-        %i.fa.fa-phone.fa-3x{:style => "font-size:50px;color:orange;"}
-        %h5.card-title 24/7 Support
-        %p.card-text
-          %small.text-muted Our support is on duty.
   %br
   = link_to 'See more features', features_path, class: 'btn btn-warning'
   %br
@@ -178,7 +233,7 @@
   %br
   .row
     .col-4
-      %h2.display-5 Don't just take our word for it
+      .display-4 Don't just take our word for it
     .col-8
       .row.text-center
         .col
@@ -195,7 +250,7 @@
           = image_tag "vistula-askdemos-partner-logo.png", style: 'height:auto;width:35%;', :alt => "vistula-askdemos-partner"
         .col
           = image_tag "spark-solutions-askdemos-partner-logo.png", style: 'height:auto;width:75%;', :alt => "spark-solutions-askdemos-partner"
-      /%p FLC London
-      /%p Ferrer hotels
-      /%p Anne Arundel Community College
+  /    /%p FLC London
+  /    /%p Ferrer hotels
+  /    /%p Anne Arundel Community College
   %br

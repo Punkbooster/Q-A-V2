@@ -1,0 +1,9 @@
+= render 'shared/flash_messages' if flash.any?
+
+.event-code-container
+  %h3.event-code-header Please input event code.
+
+  = form_for :event, url: 'frontend_event', method: :get do |f|
+    .form-group
+      = f.text_field :password, class: 'form-control'
+      = f.submit 'Find', class: 'btn btn-warning event-code-btn'

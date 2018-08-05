@@ -1,3 +1,6 @@
+- content_for :title do
+  = @event.title
+  | Edit
 = render 'shared/flash_messages' if flash.any?
 
 .row.event-container

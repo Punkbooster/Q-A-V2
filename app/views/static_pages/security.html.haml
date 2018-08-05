@@ -1,1 +1,34 @@
-%h1 Security
+%br
+.container
+  .text-center
+    %h5 Security
+  %small
+    %p Last Modified: May 25 2018
+    %p We respect the confidentiality of your data and our role in securing your data. We aim to be transparent and clear about the way we handle security and data privacy and this resource is to help you better understand our organisation security posture. We are constantly reviewing our practices to identify areas we can improve. If you have any questions, please contact us at security@askdemos.com.
+    %hr
+    %h5 Infrastructure
+    %p Askdemos is hosted on multiple data centres managed by Amazon Web Services. We store data primarily in the United States and Frankfurt, Germany.
+    %p Amazon Web Services is the leading cloud provider and they maintain stringent security controls. They have multiple certifications including ISO 27001, SOC 1/2/3 and PCI DSS. In the US region, they are also compliant with HIPAA and NIST security frameworks. For more information, please visit https://aws.amazon.com/security and https://aws.amazon.com/compliance.
+    %p We architect for high availability and have disaster recovery plans in place. We load balance across multiple servers in multiple data centres and data is stored redundantly across multiple locations to ensure continued availability of our service. We identify single points of failure and regularly perform stress testing to ensure our elastic environment can handle large scale events and traffic demanded by our customers.
+    %p We use firewalls set to default-deny and allow only selected services and ports. Traffic passes through application load balancers which permit only HTTPS and TCP. Database connections are only permitted from other servers on a private subnet. SSH access is disabled by default, and when available for debugging purposes, we use public/private key authentication.
+    %p We adopt an “Infrastructure as Code” approach to deployment and cloud management.
+    %hr
+    %h5 Data Confidentiality
+    %p We respect the privacy of your data and do not make public any of your data, including data collected when using our free Basic plan. Every staff is contractually bound to keep your data confidential, whether or not they have access to your data. We restrict access to your data on a need-to-know basis and only selected staff, as part of their job scope or responsibility, will have access to your data. We also conduct regular internal staff briefings on data privacy and handling, and security awareness to address new attacks such as ransomware/phishing.
+    %p Your data is encrypted using the latest recommended secure cipher suites at rest and in transit. At rest where data is stored on our databases, we use AES-256. In transit, data is sent on an encrypted connection. Database snapshots and near real-time live backups are also stored encrypted.
+    %p We also provide various ways to secure access to your data through an event passcode, password-encoded share links, attendee codes, enforced SAML-based 2.0 Single Sign-On for account holders and participants, as well as IP address whitelists.
+    %p Data is co-mingled, but all data is scoped by an account ID and essentially logically separated to prevent one account from accessing data of another. We can process organiser requests to delete their data post-event.
+    %hr
+    %h5 Auditing and Logs
+    %p We maintain comprehensive logs of our infrastructure as well as application. Our host-based intrusion prevention system also logs and monitors all AWS user and service access, access logs on servers including shell commands and more. We also log organiser account actions and will soon provide enterprise customers with an interface to review such logs.
+    %p We engage independent cybersecurity firms to conduct application and network penetration tests on a regular basis. We can share such reports once you enter into a non-disclosure agreement with us.
+    %hr
+    %h5 Software Development Lifecycle
+    %p We practice agile methodology and constantly push new updates and fixes without system downtime. We maintain a test, staging and production environments. Our staging environment is a replica of the production environment. Changes are made on our production environment only after it has been tested and passes QA (and depending on the change, stress tested as well) on our staging environment. Only test, made-up data is used on our staging and test environments.
+    %p Due to our automated deployment process, changes can also be rolled back within a couple minutes.
+    %hr
+    %h5 Incident Response
+    %p We have monitoring tools in place to alert our team of any incident. In the event of a security breach, our procedure is to immediately lock down the systems, preserve the logs and other evidence, and allow forensics to come in. We will promptly notify and inform you if your data was affected.
+    %hr
+    %h5 Bug Bounty
+    %p We don’t have an official bug bounty programme in place. However, if you identify any vulnerability, we will be happy if you can share your findings with us. We might even offer you a reward!

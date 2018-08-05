@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :events
   has_many :questions
 
-  validates :email, :company_name, :country, :time_zone, presence: true
+  #validates :email, :company_name, :country, :time_zone, presence: true
+  validates :email, :time_zone, presence: true
 
   def username
     if email.present?

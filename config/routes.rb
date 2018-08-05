@@ -12,9 +12,12 @@ Rails.application.routes.draw do
   get 'customer_agreement', to: 'static_pages#customer_agreement'
   get 'security', to: 'static_pages#security'
   get 'jobs', to: 'static_pages#jobs'
-  get 'event_types', to: 'static_pages#event_types'
+  get 'how', to: 'static_pages#how'
 
-  #resources :events, only: :show
+  # frontend app
+  get 'frontend_events', to: 'frontend_events#index'
+  get 'frontend_event', to: 'frontend_events#show'
+
   resources :questions, only: [:create, :edit, :update, :destroy] do
     member do
       put 'upvote', to: 'questions#upvote'
@@ -25,10 +28,13 @@ Rails.application.routes.draw do
   authenticate :user do
     resources :events do
     	member do
+        get :settings
     		patch :start_now
     		patch :end_now
   		end
 		end
   end
 
+  post 'api_questions', to: 'api/questions#create'
+  patch 'vote_question', to: 'api/questions#vote'
 end

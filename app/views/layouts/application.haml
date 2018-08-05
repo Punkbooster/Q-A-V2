@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %title 
+    %title
       = content_for?(:title) ? yield(:title) : "Q&A at events - Askdemos"
     = favicon_link_tag 'askdemos-logo-1-black.png'
     %meta{:content => "#{content_for?(:description) ? yield(:description) : "Askdemos"}", :name => "description"}/
@@ -11,12 +11,11 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'event-app-bundle'
   %body.bg-light
-    - unless current_user
-      = render 'layouts/navbar'
-    - else
-      = render 'layouts/user_navbar'
+    = render 'layouts/navbar'
     .container-fluid
+      /= current_user.time_zone
+      /= Time.zone.now
       = yield
-      /- unless current_user
     = render 'layouts/footer'

@@ -15,6 +15,6 @@ class StaticPagesController < ApplicationController
 
   def jobs; end
 
-  def events; end
+  def how; end
 
 end

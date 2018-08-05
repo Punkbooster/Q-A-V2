@@ -3,31 +3,29 @@ class Event < ApplicationRecord
 
   belongs_to :user
   has_many :questions
-
+  scope :finito, -> { where("ends_at < ?", Time.zone.now) }
+  scope :active, -> { where('ends_at > ?', Time.zone.now) }
   extend FriendlyId
   friendly_id :password, use: :slugged
 
-  validates :title, :user, presence: true
-  #validates :title, :starts_at, :ends_at, :user, presence: true
-  #validates :title, :password, :starts_at, :ends_at, :user, presence: true, on: update
-  #validates :title, :password, :starts_at, :ends_at, :user, time_zone, presence: true
-  validates :title, length: { maximum: 25 }
-  validates :description, length: { maximum: 250 }
+  validates :title, :password, :starts_at, :ends_at, :user, :time_zone, presence: true
+  validates :title, length: { maximum: 30 }
+  validates :description, length: { maximum: 2000 }
   validates :password, uniqueness: true
   validate :starts_at_cannot_be_in_the_past
   validate :ends_at_can_not_be_before_starts_at
 
   default_scope { order(created_at: :desc) }
 
-  before_create :set_password
+  before_validation :set_password, on: :create
+  before_validation :set_default_start_end_time_zone, on: :create
   after_create :add_slug
-  before_create :set_default_start_end_time_zone
-  
+
   def status
     if starts_at > Time.now && ends_at > Time.now
       "not started"
     elsif starts_at < Time.now && ends_at > Time.now
-      "active"
+      "live"
     elsif starts_at < Time.now && ends_at < Time.now
       "finished"
     else
@@ -38,10 +36,10 @@ class Event < ApplicationRecord
   def status_2
     if status == 'not started'
       "starts in #{distance_of_time_in_words(Time.now, starts_at)}"
-    elsif status == 'active'
+    elsif status == 'live'
       "ends in #{distance_of_time_in_words(Time.now, ends_at)}"
     elsif status == 'finished'
-      'finished'
+      nil
     else
       'ERROR'
     end

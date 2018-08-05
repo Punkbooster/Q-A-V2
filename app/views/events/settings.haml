@@ -1,0 +1,118 @@
+- content_for :title do
+  = @event.title
+  | Settings
+%br
+.card.bg-warning
+  = link_to event_path(@event), class: 'btn btn-block btn-warning' do
+    %h2
+      .pull-left
+        = "#{@event.title}"
+      .pull-right
+        Password: #{@event.password}
+%br
+.row
+  /.col-lg-3
+  /  .card
+  /    .card-header.text-center
+  /      %b Manage event
+  /    .card-body
+  /      %b Title:
+  /      = @event.title
+  /      %p
+  /      %b Description:
+  /      = @event.description
+  /      %p
+  /      %b Password:
+  /      = @event.password
+  /      %p
+  /      %b Starts at:
+  /      = @event.starts_at
+  /      %p
+  /      %b Ends at:
+  /      = @event.ends_at
+  /      %p
+  /      %b Time zone:
+  /      = @event.time_zone
+  .col-lg-3
+    .card
+      .card-header.text-center
+        %b 1. Manage event
+      .card-body
+        .text-center
+          Status:
+          = status_label(@event.status)
+          %p= @event.status_2
+          - if @event.starts_at > Time.now
+            = button_to "Start now", start_now_event_path(@event), method: :patch, class: 'btn btn-success btn-block'
+          - if @event.status == 'live'
+            = button_to "End now", end_now_event_path(@event), method: :patch, class: 'btn btn-danger btn-block'
+        %hr
+        - unless @event.status == 'finished'
+          = link_to 'Edit time & description', edit_event_path(@event), class: 'btn btn-primary btn-block'
+        %small
+          Participants can ask questions and vote in this time period:
+        .text-center
+          = "Start: #{@event.starts_at.strftime('%d-%b %Y, %H:%M')}"
+          %br
+          = "End: #{@event.ends_at.strftime('%d-%b %Y, %H:%M')}"
+          /(#{distance_of_time_in_words @event.ends_at, @event.starts_at})
+          %br
+          = "Time zone: #{@event.time_zone}"
+
+  .col-lg-3
+    .card
+      .card-header.text-center
+        %b 2. Customize
+      .card-body
+        - unless @event.status == 'finished'
+          %small
+            = link_to 'Logo branding', event_path, class: 'btn btn-danger btn-block disabled'
+            %p Give your brand more visibility by adding your company or event logo on the Projector Panel.
+            %hr
+            = link_to 'Custom branding', event_path, class: 'btn btn-danger btn-block disabled'
+            %p Ensure that the look and feel of AskDemos meets your company or event's branding.
+            %hr
+            = link_to 'Add speaker/event details', event_path, class: 'btn btn-danger btn-block disabled'
+            %p Ensure that the look and feel of AskDemos meets your company or event's branding.
+        - else
+          .text-center
+            = status_label(@event.status)
+  .col-lg-3
+    .card
+      .card-header.text-center
+        %b 3. Engage attendees
+      .card-body
+        - unless @event.status == 'finished'
+          %small
+            = link_to '1. Show attendees how to join', event_path, class: 'btn btn-primary btn-block'
+            %p 
+              Tell attendees to submit their questions now by going to www.askdemos.com with the password
+              %b #{@event.password}.
+            %hr
+            = link_to '2. Show question board on screen', event_path, class: 'btn btn-primary btn-block'
+            %p New questions automatically appear on the Projector Panel.
+        - else
+          .text-center
+            = status_label(@event.status)
+          %hr
+          = link_to 'View Q&A board', event_path, class: 'btn btn-primary btn-block'
+  .col-lg-3
+    .card
+      .card-header.text-center
+        %b 4. Insights
+      .card-body.text-center
+        %h5
+          .badge.badge-secondary.btn-block
+            .fa.fa-users
+            participants
+          .badge.badge-secondary.btn-block
+            .fa.fa-question
+            /= fa_icon "impressions"
+            = pluralize(@event.questions.count, 'question')
+          .badge.badge-secondary.btn-block
+            .fa.fa-thumbs-up
+            = pluralize(@event.vote_quantity, 'vote')
+        %hr
+        = link_to 'Excel Download', event_path, class: 'btn btn-danger btn-block disabled'
+        %small
+          %p Detailed audience engagement report.

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :start_now, :end_now]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :start_now, :end_now, :settings]
 
   def start_now
 		@event.update_attribute(:starts_at, Time.now)
@@ -15,6 +15,12 @@ class EventsController < ApplicationController
     #@events = Event.where(user: current_user)
     @q = Event.where(user: current_user).ransack(params[:q])
     @events = @q.result(distinct: true)
+  end
+
+  def settings
+    unless @event.user_id == current_user.id
+      redirect_to @event
+    end
   end
 
   def show

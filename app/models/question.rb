@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
   belongs_to :event
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates :event, :contents, presence: true
 
